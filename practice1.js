@@ -142,7 +142,59 @@ class Development {
     }
 
     #countAppartmentByFloorType (towerId, floor_type){
+      let getDevelopment = this.development;
+      let sum = 0;
+      let tower_id = parseInt(towerId);
+      let floorType = floor_type;
 
+      getDevelopment.structures.forEach((structures)=>{
+         if(structures.tower_id == tower_id){
+            let matchingFloorType = structures.floors.filter((floorData)=>floorData.floor_type.toLowerCase() === floorType.toLowerCase());
+            matchingFloorType.forEach((matchingFloor)=>{
+              sum = sum + matchingFloor.apartments.reduce((acc, currentValue)=>{
+                 acc = acc + 1;
+                 return acc ;
+              }, 0);
+            })
+         }else{
+          return 0;
+         }
+      })
+      return sum;
+    }
+
+    #listOwnersContactInfo (){
+        let getProject = this.project;
+        let getOwner = [];
+        getProject.towers.forEach((towerDetails)=>{
+             towerDetails.floors.forEach((floorsDetails)=>{
+                 floorsDetails.units.forEach((unitsDetails)=>{
+                     getOwner.push(unitsDetails.owner)
+                 })
+             })
+        })
+        return getOwner;
+    }
+
+    #listResidentsContactInfo (){
+      let getDevelopment = this.development;
+      let getResidentContactInfo = [];
+      getDevelopment.structures.forEach((structuresDetails)=>{
+          structuresDetails.floors.forEach((floorsDetails)=>{
+               floorsDetails.apartments.forEach((apartmentsDetails)=>{
+                    getResidentContactInfo.push(apartmentsDetails.resident);
+               })
+          })
+      })
+      return getResidentContactInfo;
+    }
+
+    listResidentsContactInfoFromDevClass() {
+        return this.#listResidentsContactInfo();
+    }
+
+    listOwnersContactInfoFromDevClass() {
+        return this.#listOwnersContactInfo();
     }
 
     countAppartmentByFloorTypeFromDevClass(towerId, floor_type) {
@@ -363,7 +415,6 @@ const project = {
       }
     ]
 };
-
   
 const development = {
     "development_id": 789,
@@ -606,7 +657,10 @@ let sumOfArea = getDev.getSumOfTotalAreaFromDevClass();
 let sumOfSquareFootage = getDev.getSumOfTotalSquareFootageFromDevClass();
 let findOwnerByName = getDev.findOwnerByNameFromDevClass("ritu");
 let countUnitsByFloorType = getDev.countUnitsByFloorTypeFromDevClass("1", "Residential");
-let countAppartmentByFloorType = getDev.countAppartmentByFloorTypeFromDevClass("1", "Residential");
+let countAppartmentByFloorType = getDev.countAppartmentByFloorTypeFromDevClass("1", "Commercial");
+let listOwnersContactInfo = getDev.listOwnersContactInfoFromDevClass();
+let listResidentsContactInfo = getDev.listResidentsContactInfoFromDevClass();
+
 
 // console.log('Units:', units);
 // console.log('Apartments:', apartments);
@@ -616,7 +670,9 @@ let countAppartmentByFloorType = getDev.countAppartmentByFloorTypeFromDevClass("
 // console.log('Sum of Square Footage:', sumOfSquareFootage);
 // console.log('Find Owner By Name:', findOwnerByName);
 // console.log('Total Units In This Floor Type is:', countUnitsByFloorType);
-
+// console.log('Total Appartment In This Floor Type is:', countAppartmentByFloorType);
+// console.log("List All Owners' Contact Information:", listOwnersContactInfo);
+console.log("List All Residents' Contact Information:", listResidentsContactInfo);
 
 
 
