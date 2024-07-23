@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+       let newarr = [6, 10, 4,3, 4, 5];
+       for(let i = 0;i<newarr.length; i++){
+            var j;
+            for(j = 0; j<i ; j++){
+                if(newarr[i] == newarr[j]){
+                    break;
+                }
+            }
+            if(i == j){
+                console.log(newarr[i]);
+            }
+       }
+    </script>
+</body>
+</html>

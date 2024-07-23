@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+       class Solution {
+            secondLargest(arr, length){
+                for(let i = 0; i < length; i++){
+                    for(let j = i+1; j < length; j++){
+                        if(arr[i] > arr[j]){
+                            let temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = temp;
+                        }
+                    }
+                }
+                return arr[length-2];
+            }
+        }
+        let solution = new Solution();
+        let secondLargestNumber = solution.secondLargest([12, 35, 1, 10, 34, 1], 6);
+        console.log("second largest number is ", secondLargestNumber);
+    </script>
+</body>
+</html>

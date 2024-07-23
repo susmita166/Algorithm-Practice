@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+
+    class Solution{
+        kadeneAlgo(arr)
+        {
+            let sum = 0;
+            let maxValue;
+            maxValue = - 1;
+            for(let i = 0; i<arr.length; i++){
+                sum = sum + arr[i];
+                console.log(sum);
+                console.log("******");
+                if(sum > maxValue){
+                    maxValue = sum;
+                }
+                if(sum < 0){
+                    sum = 0;
+                }
+            }      
+            return maxValue;
+        }
+    }
+    let solutionObj = new Solution();
+    let newarr = [ -2, -3, 4, -1, -2, 1, 5, -3];
+    console.log("Here is the array", newarr);
+    let maxSubArray = solutionObj.kadeneAlgo(newarr);
+    console.log("Max Sum Of Subarray ", maxSubArray);
+    </script>
+</body>
+</html>

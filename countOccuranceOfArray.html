@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+       let occuranceObj = {};
+        let arr = [1,3,4,3,4,1,3,3,3,4];
+        for(let i = 0; i < arr.length; i++){
+            let num = arr[i];
+            if(occuranceObj[num]){
+                occuranceObj[num] = occuranceObj[num] + 1;
+            }else{
+                occuranceObj[num] = 1;
+            }
+        }
+
+        for(let key in occuranceObj){
+            console.log(key+": "+occuranceObj[key])
+        }
+
+
+        // let makeOccurance = arr.map(data => 
+        //    {
+        //         if(occuranceObj[data]){
+        //             occuranceObj[data] = occuranceObj[data] + 1;
+        //         }else{
+        //             occuranceObj[data] = 1;
+        //         }
+        //    }
+        // );
+        // for(let key in occuranceObj){
+        //     console.log(key+": "+occuranceObj[key]);
+        // }
+    </script>
+</body>
+</html>

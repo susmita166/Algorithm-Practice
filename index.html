@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        //Find Indexes of a subarray with given sum
+         let arr = [1,2,3,4,5,6,7,8,9,10];
+         let targertSum = 15;
+         for(let i = 0; i < arr.length; i++){
+            let sum = arr[i];
+            for(let j = i+1; j < arr.length; j++){
+                if(sum < targertSum) sum = sum + arr[j];
+                if(sum === targertSum) 
+                {
+                    console.log("Sum found between indexes "+ i + " and " +j)
+                    break;
+                };
+                if(sum > targertSum){
+                    break;
+                }
+            }
+         }
+    </script>
+</body>
+</html>

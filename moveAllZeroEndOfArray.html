@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        let newarr = [1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0];
+        let count = 0;
+        for(let i=0; i< newarr.length; i++){
+            if(newarr[i] != 0){
+                newarr[count] = newarr[i];
+                count = count + 1;
+            }
+        }
+
+        // while(count < newarr.length){
+        //     count = count + 1;
+        //     newarr[count] = 0;
+        // }
+        for(let j = count; j < newarr.length-1; j++){
+            newarr[j] = 0;
+        }
+    console.log(newarr);
+    </script>
+</body>
+</html>

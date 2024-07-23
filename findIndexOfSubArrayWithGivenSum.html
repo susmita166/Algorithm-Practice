@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+      
+    //    for(let i = 0;i<newarr.length; i++)
+    //    {
+    //         let sum = newarr[i];
+    //         for(let j = i+1; j<newarr.length; j++)
+    //         {
+    //             if(sum < 12){
+    //                 sum = sum+newarr[j];
+    //             }
+    //             if(sum == 12){
+    //                 console.log("Here I position = "+(i+1)+"and J position = "+(j+1));
+    //                 break;
+    //             }
+    //             if(sum>12){
+    //                 break;
+    //             }
+    //         }
+    //    }
+
+    class Solution{
+        subarraySum(arr, length, targetSum)
+        {
+            let result = [];
+            for(let i = 0;i<length; i++)
+            {
+                    let sum = arr[i];
+                    for(let j = i+1; j<length; j++)
+                    {
+                        if(sum < targetSum){
+                            sum = sum+arr[j];
+                        }
+                        if(sum == targetSum){
+                            result.push(["The match Position of "+targetSum+" from "+(i+1)+" Position to "+(j+1)]); 
+                            break;
+                        }
+                        if(sum>targetSum){
+                            break;
+                        }
+                    }
+            }
+            return result;
+        }
+    }
+    let solutionObj = new Solution();
+    let newarr = [1,2,3,7,5];
+    console.log("Here is the array", newarr);
+    let length = newarr.length;
+    let targetSum = 12;
+    let subarrayIndices = solutionObj.subarraySum(newarr, length, targetSum);
+    console.log("Subarray indices: ", subarrayIndices);
+    </script>
+</body>
+</html>

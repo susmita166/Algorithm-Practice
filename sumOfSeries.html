@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        class ArraySumCalculator {
+            constructor(arr) {
+                this.arr = arr;
+            }
+            calculateSum() {
+                    let sum = 0;
+                    let length = this.arr.length;
+                    let d = 1;
+                    let formula = (length/2)*(2*this.arr[0] + (length - 1)*d);
+                    return formula;
+            }
+        }
+        let newarr = [1, 2, 3, 4, 5, 6,7,8,9,10];
+        let arraySumCalculator = new ArraySumCalculator(newarr);
+        let sum = arraySumCalculator.calculateSum();
+        console.log(sum);
+    </script>
+</body>
+</html>

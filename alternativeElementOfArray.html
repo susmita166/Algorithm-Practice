@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+      class classFunction {
+            constructor(arr) {
+                this.arr = arr;
+            }
+            newFunc() {
+                let newarray = [];
+                for(let x = 0; x< this.arr.length; x+=2){
+                    newarray.push(this.arr[x]);
+                }
+                return newarray;
+            }
+        }
+        let newarr = [-10, -1, 0, 3, 10, 11, 30, 50, 100];
+        let classFunctionInstance = new classFunction(newarr);
+        let newFunc = classFunctionInstance.newFunc();
+        console.log(newFunc);
+    </script>
+</body>
+</html>

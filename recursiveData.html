@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        function recursiveFunction(count){
+            if(count > 5){
+                return;
+            }
+            console.log("count = ", count, "I am Susmita Nayak");
+            count = count + 1;
+            recursiveFunction(count);
+        }
+        let count = 1;
+        recursiveFunction(count);
+    </script>
+</body>
+</html>

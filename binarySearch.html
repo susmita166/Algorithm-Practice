@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        function binarySearch(arr, start, end, search){
+            let mid = Math.ceil((start + end)/2);
+            console.log("mid-----------", mid);
+            if(search > arr[mid]){
+                start = mid;
+                return binarySearch(arr, start, end, search);
+            }
+            if(search < arr[mid]){
+                end = mid;mkkkkkk
+                console.log("start", start);
+                console.log("end", end);
+                return binarySearch(arr, start, end, search);
+            }
+            if(search == arr[mid]){
+                return mid+1;
+            }
+            return -1;
+        }
+        let binarySearching = binarySearch([2, 3, 4, 10, 40], 0, 5, 2);
+        console.log("Here is the array ", [2, 3, 4, 10, 40]);
+        console.log("Find the number in position of ", binarySearching);
+    </script>
+</body>
+</html>

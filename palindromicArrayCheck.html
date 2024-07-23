@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+      class classFunction {
+            constructor(arr) {
+                this.arr = arr;
+            }
+            newFunc() {
+                let sum = 0;
+                for(let x in this.arr){
+                    while (n > 0){
+                        let reminder = this.arr[x] % 10;
+                        sum = (sum * 10) + reminder;
+                        let no = this.arr[x] / 10;
+                    }
+                }
+                
+            }
+        }
+        let newarr = [111, 222, 333, 444, 121];
+        let classFunctionInstance = new classFunction(newarr);
+        let newFunc = classFunctionInstance.newFunc();
+        console.log(newFunc);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+        function leadersInArray(arr) {
+            let newArr = [];
+            for(let i = 0; i < arr.length; i++){
+                let flag = 0;
+                for(let j = i+1; j < arr.length; j++){
+                    if(arr[i] > arr[j]){
+                        flag = 0;
+                    }else{
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag==0){
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        let leadersArray = leadersInArray([16, 17, 4, 3, 5, 2]); 
+        console.log(leadersArray);
+    </script>
+</body>
+</html>

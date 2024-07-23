@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <script>
+
+    class Solution{
+        missingNumberInArray(arr, length)
+        {
+            let result = [];
+            for(let i = 0;i<length; i++)
+            {
+                if(arr[i]+1 != arr[i+1]){
+                    return (arr[i]+1);
+                }
+            }
+            
+        }
+    }
+    let solutionObj = new Solution();
+    let newarr = [1,2,3,5];
+    let length = newarr.length;
+    console.log("Here is the array", newarr);
+    let missingNumber = solutionObj.missingNumberInArray(newarr, length);
+    console.log("Missing Number: ", missingNumber);
+    </script>
+</body>
+</html>
