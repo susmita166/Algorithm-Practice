@@ -662,16 +662,16 @@ let listOwnersContactInfo = getDev.listOwnersContactInfoFromDevClass();
 let listResidentsContactInfo = getDev.listResidentsContactInfoFromDevClass();
 
 
-// console.log('Units:', units);
-// console.log('Apartments:', apartments);
-// console.log('Common Tower Details:', tower_details);
-// console.log('Common Floor Details:', floor_details);
-// console.log('Sum of area:', sumOfArea);
-// console.log('Sum of Square Footage:', sumOfSquareFootage);
-// console.log('Find Owner By Name:', findOwnerByName);
-// console.log('Total Units In This Floor Type is:', countUnitsByFloorType);
-// console.log('Total Appartment In This Floor Type is:', countAppartmentByFloorType);
-// console.log("List All Owners' Contact Information:", listOwnersContactInfo);
+console.log('Units:', units);
+console.log('Apartments:', apartments);
+console.log('Common Tower Details:', tower_details);
+console.log('Common Floor Details:', floor_details);
+console.log('Sum of area:', sumOfArea);
+console.log('Sum of Square Footage:', sumOfSquareFootage);
+console.log('Find Owner By Name:', findOwnerByName);
+console.log('Total Units In This Floor Type is:', countUnitsByFloorType);
+console.log('Total Appartment In This Floor Type is:', countAppartmentByFloorType);
+console.log("List All Owners' Contact Information:", listOwnersContactInfo);
 console.log("List All Residents' Contact Information:", listResidentsContactInfo);
 
 
