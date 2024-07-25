@@ -43,6 +43,77 @@ class Development {
         return getEmployeeDetails;
     }
 
+
+    #employeeWithLowestSalaryInEachDepartment() {
+        let employeeObj = [];
+        let minSalary;
+        organization.departments.forEach((departments)=>{
+            minSalary = 0;
+            departments.teams.forEach((teams)=>{
+                teams.employees.forEach((employees)=>{
+                    employeeObj.push({"employee_id":employees.employee_id, "department_name":departments.department_name, "salary":employees.salary });
+                })
+            })
+        })
+        let getSalary = employeeObj.map(data => data.salary);
+        let getMinSalary = Math.max(...getSalary);
+        let employeeWithMinimumSalary = employeeObj.filter(data => data.salary === getMinSalary);
+        return employeeWithMinimumSalary;
+    }
+
+
+    #groupEmployeesByPosition() {
+        let employeeDetails = [];
+        organization.departments.forEach((departments)=>{
+            departments.teams.forEach((teams)=>{
+                teams.employees.forEach((employees)=>{
+                    employeeDetails.push(employees)
+                })
+            })
+        })
+        let groupByPosition = {} ;
+        employeeDetails.forEach((employee)=>{
+            let position = employee.position;
+            if(!groupByPosition[position]){
+                groupByPosition[position] = [];
+            }
+            groupByPosition[position].push(employee);
+        })
+        return groupByPosition;        
+    }
+
+    #totalSalaryByDepartmentAndTeam() {
+        let departmentDetails = organization.departments;
+        let resultObj = {};
+        departmentDetails.forEach((data)=>{
+            let departmentName = data.department_name;
+            let teamObj = {};
+            data.teams.forEach((teams)=>{
+                let salarySum = teams.employees.reduce((acc, currentValue)=>{
+                    acc = acc + currentValue.salary;
+                    return acc ;
+                },0);
+                teamObj[teams.team_name] = salarySum;
+            })
+            resultObj[departmentName] = teamObj;
+        })
+        return resultObj;
+    }
+
+
+    totalSalaryByDepartmentAndTeamFromDevClass() {
+        return this.#totalSalaryByDepartmentAndTeam();
+    }
+
+
+    groupEmployeesByPositionFromDevClass() {
+        return this.#groupEmployeesByPosition();
+    }
+
+    employeeWithLowestSalaryInEachDepartmentFromDevClass() {
+        return this.#employeeWithLowestSalaryInEachDepartment();
+    }
+
     departmentWithHighestAverageSalaryfoFromDevClass() {
         return this.#departmentWithHighestAverageSalary();
     }
@@ -63,7 +134,7 @@ const organization = {
         "teams": [
           {
             "team_id": 101,
-            "team_name": "Backend",
+            "team_name": "IOS Developer",
             "employees": [
               {
                 "employee_id": 1,
@@ -81,7 +152,7 @@ const organization = {
           },
           {
             "team_id": 102,
-            "team_name": "Frontend",
+            "team_name": "Android Developer",
             "employees": [
               {
                 "employee_id": 3,
@@ -158,13 +229,13 @@ const organization = {
               {
                 "employee_id": 43,
                 "employee_name": "Eve",
-                "position": "Senior Software Engineer",
+                "position": "Project Manager",
                 "salary": 190000
               },
               {
                 "employee_id": 44,
                 "employee_name": "Ritu",
-                "position": "Senior Software Engineer",
+                "position": "It Analyst",
                 "salary": 50000
               },
               {
@@ -184,6 +255,12 @@ const organization = {
 
 const getDev = new Development(organization);
 let departmentWithHighestAverageSalary = getDev.departmentWithHighestAverageSalaryfoFromDevClass();
-let teamsWithMoreThannEmployees = getDev.teamsWithMoreThannEmployeesFromDevClass("1"); 
+let teamsWithMoreThannEmployees = getDev.teamsWithMoreThannEmployeesFromDevClass("2"); 
+let employeeWithLowestSalaryInEachDepartment = getDev.employeeWithLowestSalaryInEachDepartmentFromDevClass(); 
+let groupEmployeesByPosition = getDev.groupEmployeesByPositionFromDevClass(); 
+let totalSalaryByDepartmentAndTeam = getDev.totalSalaryByDepartmentAndTeamFromDevClass(); 
 // console.log('Find the Department with the Highest Average Salary:', departmentWithHighestAverageSalary);
-console.log('Team objects with more than employee:', teamsWithMoreThannEmployees);
+// console.log('Team objects with more than employee:', teamsWithMoreThannEmployees);
+// console.log('Find the Employee with the Lowest Salary in Each Department:', employeeWithLowestSalaryInEachDepartment);
+// console.log('Nested Structure of Employees by Position:', groupEmployeesByPosition);
+console.log('Total Salary by Department and Team:', totalSalaryByDepartmentAndTeam);
